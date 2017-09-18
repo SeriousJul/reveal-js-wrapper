@@ -7,10 +7,13 @@
     "postinstall": "cd node_modules && cd reveal.js && npm i",
     "start": "cd node_modules && cd reveal.js && npm start -- --root=../../ --port=1337",
     "docker-build-multiplex": "copy Dockerfile-multiplex .\\node_modules\\reveal.js\\plugin\\multiplex\\Dockerfile /Y && docker build -t reveal-multiplex .\\node_modules\\reveal.js\\plugin\\multiplex",
-    "docker-run-multiplex": "docker run -p 31337:31337 --name reveal-multiplex reveal-multiplex",
+    "docker-run-multiplex": "docker run -p 31338:31337 -d --name reveal-multiplex reveal-multiplex",
     "docker-rm-multiplex": "docker rm -f reveal-multiplex",
-    "docker-push-multiplex": "docker rm -f reveal-multiplex"
-
+    "docker-push-multiplex": "docker tag reveal-multiplex seriousjul/reveal-multiplex && docker push seriousjul/reveal-multiplex",
+    "docker-build": "docker build -t reveal .",
+    "docker-run": "docker run -p 31337:80 -d --name reveal reveal",
+    "docker-rm": "docker rm -f reveal",
+    "docker-push": "docker tag reveal seriousjul/reveal && docker push seriousjul/reveal"
   },
   "author": "Julien Antony (jul.antony@gmail.com)",
   "dependencies": {
