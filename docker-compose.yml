@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  reveal-js-multiplex:
+    build:
+      context: .
+      dockerfile: Dockerfile-multiplex
+    image: seriousjul/reveal-js-multiplex:latest-dev
+    ports:
+    - "9010:80"
+
+  reveal-js-wrapper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: seriousjul/reveal-js-wrapper:latest-dev
+    ports:
+    - "9011:80"

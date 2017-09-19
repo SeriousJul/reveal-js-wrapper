@@ -5,15 +5,11 @@ RUN mkdir -p /tmp
 RUN mkdir -p /usr/src
 WORKDIR /tmp
 COPY package.json /tmp
-RUN npm install
-RUN mv node_modules/reveal.js/plugin/multiplex /usr/src/app
-RUN rm -rf /tmp
-RUN ls -al /usr/src/app
+RUN npm install && mv node_modules/reveal.js/plugin/multiplex /usr/src/app && rm -rf /tmp
 
 # Install app dependencies
 WORKDIR /usr/src/app
 RUN npm install
-RUN ls -al
 
 ENV PORT 80
 EXPOSE 80
