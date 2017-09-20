@@ -13,3 +13,4 @@ FROM httpd:2-alpine
 # Bundle app source
 COPY --from=0 /usr/src/app /usr/local/apache2/htdocs/
 COPY . /usr/local/apache2/htdocs/
+RUN mv /usr/local/apache2/htdocs/httpd.conf /usr/local/apache2/conf/httpd.conf
