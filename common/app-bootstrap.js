@@ -30,6 +30,7 @@ RevealBootstrapper.config = {
     defaultTiming: 0,
     slideNumber: true,
     showNotes: true,
+    history: true,
     dependencies: [
         //Multiplex
         {
@@ -64,15 +65,6 @@ RevealBootstrapper.config = {
             src: '../node_modules/reveal.js/plugin/markdown/markdown.js',
             condition: function () {
                 return !!document.querySelector('[data-markdown]');
-            }
-        },
-
-        // Syntax highlight for <code> elements
-        {
-            src: '../node_modules/reveal.js/plugin/highlight/highlight.js',
-            async: true,
-            callback: function () {
-                hljs.initHighlightingOnLoad();
             }
         },
 
